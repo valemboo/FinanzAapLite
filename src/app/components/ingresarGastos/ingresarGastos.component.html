@@ -1,0 +1,130 @@
+<div class="fondo-pantalla">
+    <div class="tarjeta-gasto">
+        <div class="encabezado">
+            <h2>Agregar gasto</h2>
+        </div>
+
+        <!-- Mensaje de error -->
+
+        @if (error()) {
+
+            <div class="mensaje-error">
+                {{ mensajeError() }}
+            </div>
+        }
+
+        <!-- Formulario -->
+
+        <form
+            (submit)="$event.preventDefault(); agregarGasto()"
+        >
+
+            <!-- Presupuesto -->
+
+            <div class="grupo-campo">
+
+                <label for="presupuesto">Presupuesto</label>
+                <select
+                    id="presupuesto"
+                    class="input-control"
+                    (change)="seleccionarPresupuesto($event)"
+                >
+                    <option value="" selected>
+                        Seleccione un presupuesto
+                    </option>
+
+                    @for (
+                        presupuesto of presupuestoService.presupuestos();
+                        track presupuesto.id
+                    ) {
+
+                        <option [value]="presupuesto.id">
+                            {{ presupuesto.nombre }}
+                            — ₡{{ presupuesto.saldo }}
+                        </option>
+                    }
+                </select>
+
+                <small>
+                    Selecciona el presupuesto del que se descontará el gasto.
+                </small>
+            </div>
+
+            <!-- Saldo disponible -->
+
+            @if (presupuestoSeleccionado() !== null) {
+
+                @if (
+                    presupuestoService.obtenerPresupuesto(
+                        presupuestoSeleccionado()!
+                    );
+                    as presupuesto
+                ) {
+
+                    <div class="saldo-info">
+
+                        <span>Saldo disponible</span>
+
+                        <strong>
+                            ₡{{ presupuesto.saldo }}
+                        </strong>
+
+                    </div>
+
+                }
+
+            }
+
+
+            <!-- Categoría -->
+
+            <div class="grupo-campo">
+                <label for="categoria">
+                    Categoría del gasto
+                </label>
+
+                <select
+                    id="categoria"
+                    class="input-control"
+                    [value]="categoria()"
+                    (change)="categoria.set($any($event.target).value)"
+                >
+                    <option value="">Seleccione una categoría</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Universidad">Universidad</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Servicios">Servicios</option>
+                    <option value="Pasajes">Pasajes</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+
+
+            <!-- Monto -->
+
+            <div class="grupo-campo">
+                <label for="monto">Monto del gasto</label>
+                <div class="campo-monto">
+                    <span>₡</span>
+
+                    <input
+                        id="monto"
+                        type="number"
+                        class="input-control"
+                        placeholder="0"
+                        min="1"
+                        step="1"
+                        [value]="monto()"
+                        (input)="monto.set(+$any($event.target).value)"
+                    >
+                </div>
+            </div>
+
+            <!-- Botón -->
+            <button type="submit" class="btn-guardar">Agregar gasto</button>
+        </form>
+        <a routerLink="/presupuesto" class="enlace-presupuestos">
+            Ver presupuestos existentes →
+        </a>
+    </div>
+</div>

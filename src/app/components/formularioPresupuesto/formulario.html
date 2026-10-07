@@ -1,0 +1,50 @@
+<div class="fondo-pantalla">
+    <div class="contenedor-presupuesto">
+
+        <div class="tarjeta">
+            <h2 class="titulo-pantalla">Nuevo Presupuesto</h2>
+
+            @if(error()){
+            <div class="alert alert-danger" role="alert">
+                El presupuesto debe ser mayor a cero y completar todos los campos.
+            </div>
+            }
+
+            <form (submit)="$event.preventDefault(); addPresupuesto()">
+
+                <!-- Nombre del Presupuesto -->
+                <div class="grupo-campo">
+                    <label for="nombrePresupuesto">Nombre del presupuesto</label>
+                    <input id="nombrePresupuesto" type="text" placeholder="Ej. Gastos Personales, Hogar..."
+                        class="input-control" [value]="nombrePresupuesto()"
+                        (input)="nombrePresupuesto.set(txtNombre.value)" #txtNombre required>
+                </div>
+
+                <!-- Fecha del Presupuesto (Selector de calendario) -->
+                <div class="grupo-campo">
+                    <label for="fechaPresupuesto">Fecha correspondiente</label>
+                    <input id="fechaPresupuesto" type="date" class="input-control" [value]="fechaPresupuesto()"
+                        (input)="fechaPresupuesto.set(txtFecha.value)" #txtFecha required>
+                </div>
+
+                <!-- Monto del Presupuesto -->
+                <div class="grupo-campo">
+                    <label for="montoPresupuesto">Monto total</label>
+                    <div class="contenedor-monto">
+                        <span class="simbolo-moneda">₡</span>
+                        <input id="montoPresupuesto" type="number" placeholder="0" class="input-control monto" min="1"
+                            step="any" [value]="presupuesto()" (input)="presupuesto.set(+txtPresupuesto.value)"
+                            #txtPresupuesto required>
+                    </div>
+                </div>
+
+                <!-- Acciones del Formulario -->
+                <div class="grupo-acciones">
+                    <button type="submit" class="btn-aceptar">Guardar Presupuesto</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>

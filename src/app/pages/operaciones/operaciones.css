@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.fondo-pantalla {
+    min-height: 100vh;
+    width: 100%;
+    padding: 90px 20px 20px;
+
+    background: linear-gradient(160deg, #0B1220 0%, #334155 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.forma {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.forma-1 {
+    width: 420px;
+    height: 420px;
+    top: -140px;
+    left: -120px;
+    background: rgba(148, 163, 184, 0.18);
+}
+
+.forma-2 {
+    width: 340px;
+    height: 340px;
+    bottom: -160px;
+    right: -100px;
+    background: rgba(226, 232, 240, 0.10);
+}
+
+.forma-3 {
+    width: 220px;
+    height: 220px;
+    bottom: 15%;
+    left: 8%;
+    background: rgba(148, 163, 184, 0.12);
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .forma-3 {
+        display: block;
+    }
+}
+
+/* --- Tarjeta --- */
+.tarjeta {
+    width: min(400px, 100%);
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+
+    padding: 48px 32px;
+    text-align: center;
+
+    box-shadow: 0 20px 50px rgba(11, 18, 32, 0.35);
+
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Texto de Pregunta --- */
+.marca {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0B1220;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+}
+
+/* --- Estilos Base de Botones --- */
+button {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button + button {
+    margin-top: 16px;
+}
+
+button:focus-visible {
+    outline: 2px solid #334155;
+    outline-offset: 2px;
+}
+
+/* --- Botón Principal (Crear Presupuesto) --- */
+.btn-crearPresupuesto {
+    background-color: #0B1220;
+    color: #FFFFFF;
+}
+
+.btn-crearPresupuesto:hover {
+    background-color: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 18, 32, 0.15);
+}
+
+.btn-crearPresupuesto:active {
+    transform: translateY(0px);
+}
+
+/* --- Botón Secundario (Agregar Gasto) --- */
+.btn-agregarGasto {
+    background-color: #F1F5F9;
+    color: #334155;
+    border: 1px solid #E2E8F0;
+}
+
+.btn-agregarGasto:hover {
+    background-color: #E2E8F0;
+    color: #0B1220;
+    border-color: #94A3B8;
+    transform: translateY(-2px);
+}
+
+.btn-agregarGasto:active {
+    transform: translateY(0px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+
+    .fondo-pantalla {
+        padding: 84px 16px 16px;
+    }
+
+    .tarjeta {
+        padding: 36px 24px;
+    }
+
+    .marca {
+        font-size: 1.1rem;
+        margin-bottom: 26px;
+    }
+
+    button {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    .forma-1 {
+        width: 260px;
+        height: 260px;
+        top: -100px;
+        left: -90px;
+    }
+
+    .forma-2 {
+        width: 220px;
+        height: 220px;
+        bottom: -120px;
+        right: -80px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+    .btn-crearPresupuesto:hover,
+    .btn-agregarGasto:hover {
+        transform: none;
+    }
+}

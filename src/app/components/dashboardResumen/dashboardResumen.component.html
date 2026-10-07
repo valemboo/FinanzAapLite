@@ -1,0 +1,48 @@
+<div class="fondo-pantalla">
+
+    <div class="forma forma-1"></div>
+    <div class="forma forma-2"></div>
+
+    <div class="contenedor-dashboard">
+
+        <p class="marca">VISIÓN GENERAL</p>
+        <h2 class="titulo-pantalla">Resumen general</h2>
+
+        <div class="grid-cards">
+
+            <!-- Cantidad de presupuestos creados -->
+            <div class="tarjeta-resumen acento-neutro">
+                <span class="etiqueta-card">Presupuestos creados</span>
+                <strong class="valor-card">
+                    {{ cantidadPresupuestos() }}
+                </strong>
+            </div>
+
+            <!-- Cantidad de presupuestos agotados -->
+            <div class="tarjeta-resumen acento-alerta">
+                <span class="etiqueta-card">Presupuestos agotados</span>
+                <strong class="valor-card">
+                    {{ cantidadPresupuestosAgotados() }}
+                </strong>
+            </div>
+
+            <!-- Mes con el presupuesto más alto -->
+            <div class="tarjeta-resumen acento-neutro">
+                <span class="etiqueta-card">Mes con presupuesto más alto</span>
+                <strong class="valor-card valor-texto">
+                    {{ mesPresupuestoMasAlto() }}
+                </strong>
+            </div>
+
+            <!-- Categoría de gasto con mayor consumo -->
+            <div class="tarjeta-resumen acento-neutro">
+                <span class="etiqueta-card">Categoría con mayor consumo</span>
+                <strong class="valor-card valor-texto">
+                    {{ categoriaMayorConsumo() }}
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+</div>

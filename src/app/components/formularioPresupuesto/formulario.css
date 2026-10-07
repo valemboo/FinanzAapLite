@@ -1,0 +1,127 @@
+.contenedor-presupuesto {
+    width: 100%;
+    max-width: 440px;
+}
+
+/* --- Tarjeta del Formulario --- */
+.tarjeta {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 10px 25px -5px rgba(11, 18, 32, 0.05),
+                0 8px 10px -6px rgba(11, 18, 32, 0.03);
+}
+
+.titulo-pantalla {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0B1220;
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+/* --- Alerta de Error --- */
+.alert-danger {
+    background-color: #FEF2F2;
+    color: #991B1B;
+    border: 1px solid #FCA5A5;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* --- Grupos de Campos --- */
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.grupo-campo label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* --- Inputs y Selects --- */
+.input-control {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: #0B1220;
+    background-color: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.input-control::placeholder {
+    color: #94A3B8;
+}
+
+.input-control:focus {
+    border-color: #0B1220;
+    box-shadow: 0 0 0 3px rgba(11, 18, 32, 0.08);
+}
+
+/* --- Input de Monto con Moneda (₡) --- */
+.contenedor-monto {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.simbolo-moneda {
+    position: absolute;
+    left: 14px;
+    font-weight: 700;
+    color: #334155;
+    font-size: 1.05rem;
+    pointer-events: none;
+}
+
+.contenedor-monto .monto {
+    padding-left: 32px;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* --- Botón Guardar --- */
+.grupo-acciones {
+    margin-top: 28px;
+}
+
+.btn-aceptar {
+    width: 100%;
+    background-color: #0B1220;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-aceptar:hover {
+    background-color: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 18, 32, 0.12);
+}
+
+.btn-aceptar:active {
+    transform: translateY(0);
+}
+
+.btn-aceptar:focus-visible {
+    outline: 2px solid #94A3B8;
+    outline-offset: 2px;
+}

@@ -1,0 +1,30 @@
+<div class="panel-presupuestos">
+    <h2 class="titulo-lista">Presupuestos existentes</h2>
+    <div class="lista-presupuestos">
+        @for (
+            presupuesto of presupuestoService.presupuestos();
+            track $index
+        ) {
+            <div class="tarjeta-presupuesto">
+
+                <h3>
+                    {{ presupuesto.nombre }}
+                </h3>
+
+                <p>
+                    Fecha: {{ presupuesto.mes }}
+                </p>
+
+                <p>
+                    Presupuesto:
+                    ₡{{ presupuesto.monto }}
+                </p>
+
+                <strong>
+                    Saldo:
+                    ₡{{ presupuesto.saldo }}
+                </strong>
+            </div>
+        }
+    </div>
+</div>
